@@ -1,0 +1,7 @@
+.idea/
+
+*.sln
+*.sln.*
+
+*/obj/
+*/bin/
