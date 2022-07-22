@@ -5,6 +5,7 @@ using DesignPatterns.Command;
 using DesignPatterns.Command.Editor;
 using DesignPatterns.Command.Exercise;
 using DesignPatterns.Composite;
+using DesignPatterns.Composite.Exercise;
 using DesignPatterns.Iterator;
 using DesignPatterns.Iterator.Exercise;
 using DesignPatterns.Mediator;
@@ -215,6 +216,22 @@ namespace DesignPatterns
 
             group.Render();
             group.Move();
+
+            var team1 = new Team();
+            team1.Add(new Truck());
+            team1.Add(new Human());
+            team1.Add(new Human());
+
+            var team2 = new Team();
+            team2.Add(new Truck());
+            team2.Add(new Human());
+            team2.Add(new Human());
+
+            var team = new Team();
+            team.Add(team1);
+            team.Add(team2);
+            
+            team.Operation();
         }
 
         private static void Visitor()
