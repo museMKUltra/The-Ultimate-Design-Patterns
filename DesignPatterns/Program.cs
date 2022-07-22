@@ -198,6 +198,14 @@ namespace DesignPatterns
             Visitor();
 
             Composite();
+
+            Adapter();
+        }
+
+        private static void Adapter()
+        {
+            var imageView = new ImageView(new Image());
+            imageView.Apply(new VividFilter());
         }
 
         private static void Composite()
