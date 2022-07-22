@@ -195,10 +195,16 @@ namespace DesignPatterns
             ChainOfResponsibility();
 
             Visitor();
+
+            Composite();
+        }
+
+        private static void Composite()
+        {
             var group1 = new Group();
             group1.Add(new Shape()); // square
             group1.Add(new Shape()); // square
-            
+
             var group2 = new Group();
             group2.Add(new Shape()); // circle
             group2.Add(new Shape()); // circle
@@ -234,7 +240,7 @@ namespace DesignPatterns
             var authenticator = new Authenticator(logger);
             var webServer = new WebServer(authenticator);
 
-            webServer.Handle(new HttpRequest {Username = "admin", Password = "1234"});
+            webServer.Handle(new HttpRequest { Username = "admin", Password = "1234" });
 
             var dataFiles = new DataFiles();
             var xlsHandler = new XlsHandler(null);
@@ -284,7 +290,7 @@ namespace DesignPatterns
         private static void Editor()
         {
             var editorHistory = new Command.Editor.History();
-            var document = new HtmlDocument {Content = "Hello World"};
+            var document = new HtmlDocument { Content = "Hello World" };
             var boldCommand = new BoldCommand(document, editorHistory);
 
             boldCommand.Execute();
@@ -295,7 +301,7 @@ namespace DesignPatterns
             Console.WriteLine(document.Content);
 
             var history = new Command.Exercise.History();
-            var videoEditor = new VideoEditor {Contrast = 2, Text = "two"};
+            var videoEditor = new VideoEditor { Contrast = 2, Text = "two" };
             Console.WriteLine(videoEditor.ToString());
 
             var videoCommand = new VideoCommand(videoEditor, history);

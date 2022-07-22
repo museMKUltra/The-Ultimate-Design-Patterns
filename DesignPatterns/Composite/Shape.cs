@@ -2,7 +2,7 @@ using System;
 
 namespace DesignPatterns.Composite
 {
-    public class Shape
+    public class Shape : IComponent
     {
         public void Render()
         {

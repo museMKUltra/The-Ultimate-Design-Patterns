@@ -3,27 +3,20 @@ using System.Collections.Generic;
 
 namespace DesignPatterns.Composite
 {
-    public class Group
+    public class Group : IComponent
     {
-        private List<Object> _objects = new();
+        private List<IComponent> _components = new();
 
-        public void Add(Object shape)
+        public void Add(IComponent component)
         {
-            _objects.Add(shape);
+            _components.Add(component);
         }
 
         public void Render()
         {
-            foreach (var obj in _objects)
+            foreach (var component in _components)
             {
-                if (obj is Shape)
-                {
-                   ((Shape)obj).Render();
-                }
-                else
-                {
-                    ((Group)obj).Render();
-                }
+                component.Render();
             }
         }
     }
