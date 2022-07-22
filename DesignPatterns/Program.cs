@@ -4,6 +4,7 @@ using DesignPatterns.ChainOfResponsibility.Exercise;
 using DesignPatterns.Command;
 using DesignPatterns.Command.Editor;
 using DesignPatterns.Command.Exercise;
+using DesignPatterns.Composite;
 using DesignPatterns.Iterator;
 using DesignPatterns.Iterator.Exercise;
 using DesignPatterns.Mediator;
@@ -194,6 +195,18 @@ namespace DesignPatterns
             ChainOfResponsibility();
 
             Visitor();
+            var group1 = new Group();
+            group1.Add(new Shape()); // square
+            group1.Add(new Shape()); // square
+            
+            var group2 = new Group();
+            group2.Add(new Shape()); // circle
+            group2.Add(new Shape()); // circle
+
+            var group = new Group();
+            group.Add(group1);
+            group.Add(group2);
+            group.Render();
         }
 
         private static void Visitor()
