@@ -19,5 +19,13 @@ namespace DesignPatterns.Composite
                 component.Render();
             }
         }
+
+        public void Move()
+        {
+            foreach (var component in _components)
+            {
+                component.Move();
+            }
+        }
     }
 }

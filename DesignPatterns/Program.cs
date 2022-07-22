@@ -212,7 +212,9 @@ namespace DesignPatterns
             var group = new Group();
             group.Add(group1);
             group.Add(group2);
+
             group.Render();
+            group.Move();
         }
 
         private static void Visitor()
