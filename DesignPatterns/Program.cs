@@ -8,6 +8,7 @@ using DesignPatterns.Command.Editor;
 using DesignPatterns.Command.Exercise;
 using DesignPatterns.Composite;
 using DesignPatterns.Composite.Exercise;
+using DesignPatterns.Decorator;
 using DesignPatterns.Iterator;
 using DesignPatterns.Iterator.Exercise;
 using DesignPatterns.Mediator;
@@ -202,6 +203,22 @@ namespace DesignPatterns
             Composite();
 
             Adapter();
+
+            Decorator();
+        }
+
+        private static void Decorator()
+        {
+            var data = "here's some data";
+            
+            var cloudStream = new CloudStream();
+            cloudStream.Write(data);
+
+            var encryptedCloudStream = new EncryptedCloudStream();
+            encryptedCloudStream.Write(data);
+
+            var compressedCloudStream = new CompressedCloudStream();
+            compressedCloudStream.Write(data);
         }
 
         private static void Adapter()
