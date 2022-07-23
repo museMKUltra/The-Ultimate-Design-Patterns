@@ -1,4 +1,5 @@
 ﻿using System;
+using DesignPatterns.Adapter;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.ChainOfResponsibility.Exercise;
 using DesignPatterns.Command;
@@ -206,6 +207,7 @@ namespace DesignPatterns
         {
             var imageView = new ImageView(new Image());
             imageView.Apply(new VividFilter());
+            imageView.Apply(new CaramelFilter(new Caramel()));
         }
 
         private static void Composite()
