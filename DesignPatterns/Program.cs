@@ -208,6 +208,7 @@ namespace DesignPatterns
             var imageView = new ImageView(new Image());
             imageView.Apply(new VividFilter());
             imageView.Apply(new CaramelFilter(new Caramel()));
+            imageView.Apply(new CaramelAdapter());
         }
 
         private static void Composite()
