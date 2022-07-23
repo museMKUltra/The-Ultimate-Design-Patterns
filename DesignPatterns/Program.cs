@@ -1,5 +1,6 @@
 ﻿using System;
 using DesignPatterns.Adapter;
+using DesignPatterns.Adapter.Exercise;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.ChainOfResponsibility.Exercise;
 using DesignPatterns.Command;
@@ -209,6 +210,10 @@ namespace DesignPatterns
             imageView.Apply(new VividFilter());
             imageView.Apply(new CaramelFilter(new Caramel()));
             imageView.Apply(new CaramelAdapter());
+
+            var emailClient = new EmailClient();
+            emailClient.AddProvider(new GmailProvider(new GmailClient()));
+            emailClient.DownloadEmail();
         }
 
         private static void Composite()
@@ -355,4 +360,5 @@ namespace DesignPatterns
             control.Draw();
         }
     }
+
 }
