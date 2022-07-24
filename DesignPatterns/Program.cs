@@ -209,16 +209,14 @@ namespace DesignPatterns
 
         private static void Decorator()
         {
-            var data = "here's some data";
-            
-            var cloudStream = new CloudStream();
-            cloudStream.Write(data);
+            StoreCreditCard(new CloudStream());
+            StoreCreditCard(new EncryptedCloudStream(new CloudStream()));
+            StoreCreditCard(new CompressedCloudStream(new CloudStream()));
+        }
 
-            var encryptedCloudStream = new EncryptedCloudStream();
-            encryptedCloudStream.Write(data);
-
-            var compressedCloudStream = new CompressedCloudStream();
-            compressedCloudStream.Write(data);
+        private static void StoreCreditCard(IStream stream)
+        {
+            stream.Write("here's some data");
         }
 
         private static void Adapter()

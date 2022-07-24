@@ -2,7 +2,7 @@ using System;
 
 namespace DesignPatterns.Decorator
 {
-    public class CloudStream
+    public class CloudStream : IStream
     {
         public void Write(string data)
         {

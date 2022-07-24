@@ -1,11 +1,18 @@
 namespace DesignPatterns.Decorator
 {
-    public class CompressedCloudStream : CloudStream
+    public class CompressedCloudStream : IStream
     {
+        private IStream _stream;
+
+        public CompressedCloudStream(IStream stream)
+        {
+            _stream = stream;
+        }
+
         public new void Write(string data)
         {
             var encrypt = Compress(data);
-            base.Write(encrypt);
+            _stream.Write(encrypt);
         }
 
         private static string Compress(string data)
