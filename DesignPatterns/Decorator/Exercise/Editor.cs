@@ -7,16 +7,13 @@ namespace DesignPatterns.Decorator.Exercise
     {
         public void OpenProject(string path)
         {
-            Artefact[] artefacts =
+            IArtefact[] artefacts =
             {
-                new("Main"),
-                new("Demo"),
-                new("EmailClient"),
-                new("EmailProvider"),
+                new Main(new Artefact("Main")),
+                new Artefact("Demo"),
+                new Error(new Artefact("EmailClient")),
+                new Artefact("EmailProvider"),
             };
-
-            artefacts[0].SetMain(true);
-            artefacts[2].SetHasError(true);
 
             foreach (var artefact in artefacts)
             {
