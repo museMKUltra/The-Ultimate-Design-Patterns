@@ -212,6 +212,7 @@ namespace DesignPatterns
             StoreCreditCard(new CloudStream());
             StoreCreditCard(new EncryptedCloudStream(new CloudStream()));
             StoreCreditCard(new CompressedCloudStream(new CloudStream()));
+            StoreCreditCard(new EncryptedCloudStream(new CompressedCloudStream(new CloudStream())));
         }
 
         private static void StoreCreditCard(IStream stream)
