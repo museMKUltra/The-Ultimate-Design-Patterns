@@ -213,6 +213,9 @@ namespace DesignPatterns
             StoreCreditCard(new EncryptedCloudStream(new CloudStream()));
             StoreCreditCard(new CompressedCloudStream(new CloudStream()));
             StoreCreditCard(new EncryptedCloudStream(new CompressedCloudStream(new CloudStream())));
+
+            var editor = new Decorator.Exercise.Editor();
+            editor.OpenProject("...");
         }
 
         private static void StoreCreditCard(IStream stream)
