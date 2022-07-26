@@ -9,6 +9,7 @@ using DesignPatterns.Command.Exercise;
 using DesignPatterns.Composite;
 using DesignPatterns.Composite.Exercise;
 using DesignPatterns.Decorator;
+using DesignPatterns.Facade;
 using DesignPatterns.Iterator;
 using DesignPatterns.Iterator.Exercise;
 using DesignPatterns.Mediator;
@@ -205,6 +206,18 @@ namespace DesignPatterns
             Adapter();
 
             Decorator();
+
+            Facade();
+        }
+
+        private static void Facade()
+        {
+            var notificationServer = new NotificationServer();
+            var connection = notificationServer.Connect("ipAddress");
+            var authToken = notificationServer.Authenticate("appId", "key");
+            var message = new Message("hello world");
+            notificationServer.Send(authToken, message, "target");
+            connection.Disconnect();
         }
 
         private static void Decorator()
