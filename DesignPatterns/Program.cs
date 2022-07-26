@@ -212,12 +212,8 @@ namespace DesignPatterns
 
         private static void Facade()
         {
-            var notificationServer = new NotificationServer();
-            var connection = notificationServer.Connect("ipAddress");
-            var authToken = notificationServer.Authenticate("appId", "key");
-            var message = new Message("hello world");
-            notificationServer.Send(authToken, message, "target");
-            connection.Disconnect();
+            var notificationService = new NotificationService();
+            notificationService.Send("hello world", "target");
         }
 
         private static void Decorator()
