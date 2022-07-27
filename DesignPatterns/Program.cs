@@ -10,6 +10,7 @@ using DesignPatterns.Composite;
 using DesignPatterns.Composite.Exercise;
 using DesignPatterns.Decorator;
 using DesignPatterns.Facade;
+using DesignPatterns.Facade.Exercise;
 using DesignPatterns.Iterator;
 using DesignPatterns.Iterator.Exercise;
 using DesignPatterns.Mediator;
@@ -214,6 +215,9 @@ namespace DesignPatterns
         {
             var notificationService = new NotificationService();
             notificationService.Send("hello world", "target");
+
+            var tweetService = new TweetService();
+            tweetService.GetRecentTweets();
         }
 
         private static void Decorator()
