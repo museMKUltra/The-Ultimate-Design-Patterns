@@ -11,6 +11,7 @@ using DesignPatterns.Composite.Exercise;
 using DesignPatterns.Decorator;
 using DesignPatterns.Facade;
 using DesignPatterns.Facade.Exercise;
+using DesignPatterns.flyweight;
 using DesignPatterns.Iterator;
 using DesignPatterns.Iterator.Exercise;
 using DesignPatterns.Mediator;
@@ -209,6 +210,12 @@ namespace DesignPatterns
             Decorator();
 
             Facade();
+
+            var pointService = new PointService();
+            foreach (var point in pointService.GetPoints())
+            {
+                point.Draw();
+            }
         }
 
         private static void Facade()
