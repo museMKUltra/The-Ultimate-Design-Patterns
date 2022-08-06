@@ -211,7 +211,12 @@ namespace DesignPatterns
 
             Facade();
 
-            var pointService = new PointService();
+            Flyweight();
+        }
+
+        private static void Flyweight()
+        {
+            var pointService = new PointService(new PointIconFactory());
             foreach (var point in pointService.GetPoints())
             {
                 point.Draw();
