@@ -12,6 +12,7 @@ using DesignPatterns.Decorator;
 using DesignPatterns.Facade;
 using DesignPatterns.Facade.Exercise;
 using DesignPatterns.flyweight;
+using DesignPatterns.flyweight.Exercise;
 using DesignPatterns.Iterator;
 using DesignPatterns.Iterator.Exercise;
 using DesignPatterns.Mediator;
@@ -31,6 +32,7 @@ using DesignPatterns.Visitor;
 using DesignPatterns.Visitor.Exercise;
 using Button = DesignPatterns.Command.fx.Button;
 using HtmlDocument = DesignPatterns.Command.Editor.HtmlDocument;
+using SpreadSheet = DesignPatterns.Observer.SpreadSheet;
 using UndoCommand = DesignPatterns.Command.Editor.UndoCommand;
 
 namespace DesignPatterns
@@ -221,6 +223,8 @@ namespace DesignPatterns
             {
                 point.Draw();
             }
+
+            Demo.Show();
         }
 
         private static void Facade()
@@ -290,7 +294,7 @@ namespace DesignPatterns
             var team = new Team();
             team.Add(team1);
             team.Add(team2);
-            
+
             team.Operation();
         }
 
@@ -404,5 +408,4 @@ namespace DesignPatterns
             control.Draw();
         }
     }
-
 }
