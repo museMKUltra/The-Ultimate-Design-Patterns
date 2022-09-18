@@ -9,14 +9,17 @@ namespace DesignPatterns.flyweight.Exercise
 
         // In a real app, these values should not be hardcoded here.
         // They should be read from a configuration file.
-        private const string FontFamily = "Times New Roman";
-        private readonly int _fontSize = 12;
-        private readonly bool isBold = false;
+        // private const string FontFamily = "Times New Roman";
+        // private readonly int _fontSize = 12;
+        // private readonly bool isBold = false;
+        private readonly FontType _fontType = FontType.Body;
 
         private readonly Cell[,] _cells = new Cell[MaxRows, MaxCols];
+        private TypographyFactory _typographyFactory;
 
-        public SpreadSheet()
+        public SpreadSheet(TypographyFactory typographyFactory)
         {
+            _typographyFactory = typographyFactory;
             GenerateCells();
         }
 
@@ -24,14 +27,14 @@ namespace DesignPatterns.flyweight.Exercise
         {
             EnsureCellExists(row, col);
 
-            _cells[row, col].SetContent(content);
+            _cells[row, col].Content = content;
         }
 
-        public void SetFontFamily(int row, int col, string fontFamily)
+        public void SetTypography(int row, int col, FontType type)
         {
             EnsureCellExists(row, col);
 
-            _cells[row, col].SetFontFamily(fontFamily);
+            _cells[row, col].Typography = _typographyFactory.GetTypography(type);
         }
 
         private void EnsureCellExists(int row, int col)
@@ -48,8 +51,7 @@ namespace DesignPatterns.flyweight.Exercise
             for (var row = 0; row < MaxRows; row++)
             for (var col = 0; col < MaxCols; col++)
             {
-                var cell = new Cell(row, col);
-                cell.SetFontFamily(FontFamily);
+                var cell = new Cell(row, col, _typographyFactory.GetTypography(_fontType));
                 _cells[row, col] = cell;
             }
         }

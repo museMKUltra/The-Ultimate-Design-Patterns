@@ -6,42 +6,29 @@ namespace DesignPatterns.flyweight.Exercise
     {
         private readonly int _row;
         private readonly int _column;
-        private string _content;
-        private string _fontFamily;
-        private int _fontSize;
-        public bool IsBold { get; }
+        public string Content { get; set; }
+        public Typography Typography { get; set; }
 
-        public Cell(int row, int column) {
+        public Cell(int row, int column, Typography typography) {
             _row = row;
             _column = column;
-        }
-
-        public string GetContent() {
-            return _content;
-        }
-
-        public void SetContent(string content) {
-            _content = content;
+            Typography = typography;
         }
 
         public string GetFontFamily() {
-            return _fontFamily;
-        }
-
-        public void SetFontFamily(string fontFamily) {
-            _fontFamily = fontFamily;
+            return Typography.FontFamily;
         }
 
         public int GetFontSize() {
-            return _fontSize;
+            return Typography.FontSize;
         }
 
-        public void SetFontSize(int fontSize) {
-            _fontSize = fontSize;
+        public bool GetIsBold() {
+            return Typography.IsBold;
         }
 
         public void Render() {
-            Console.WriteLine($"({_row}, {_column}): {_content} {_fontFamily}");
+            Console.WriteLine($"({_row}, {_column}): {Content} {GetFontFamily()} {GetFontSize()} {GetIsBold()}");
         }
     }
 }
