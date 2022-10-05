@@ -2,8 +2,15 @@ using System;
 
 namespace DesignPatterns.Bridge
 {
-    public abstract class AdvancedRemoteControl : RemoteControl
+    public class AdvancedRemoteControl : RemoteControl
     {
-        public abstract void SetChannel(int number);
+        public AdvancedRemoteControl(IDevice device) : base(device)
+        {
+        }
+
+        public void SetChannel(int number)
+        {
+            Device.SetChannel(number);
+        }
     }
 }

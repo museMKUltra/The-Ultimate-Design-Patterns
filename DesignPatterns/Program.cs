@@ -1,6 +1,7 @@
 ﻿using System;
 using DesignPatterns.Adapter;
 using DesignPatterns.Adapter.Exercise;
+using DesignPatterns.Bridge;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.ChainOfResponsibility.Exercise;
 using DesignPatterns.Command;
@@ -214,6 +215,16 @@ namespace DesignPatterns
             Facade();
 
             Flyweight();
+
+            Bridge();
+        }
+
+        private static void Bridge()
+        {
+            var remoteControl = new RemoteControl(new SonyTV());
+            remoteControl.TurnOn();
+            var advancedRemoteControl = new AdvancedRemoteControl(new SamsungTV());
+            advancedRemoteControl.SetChannel(1);
         }
 
         private static void Flyweight()

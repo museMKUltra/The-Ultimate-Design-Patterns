@@ -2,19 +2,19 @@ using System;
 
 namespace DesignPatterns.Bridge
 {
-    public class SonyAdvancedRemoteControl : AdvancedRemoteControl
+    public class SonyTV : IDevice
     {
-        public override void TurnOn()
+        public void TurnOn()
         {
             Console.WriteLine("sony turn on");
         }
 
-        public override void TurnOff()
+        public void TurnOff()
         {
             Console.WriteLine("sony turn off");
         }
 
-        public override void SetChannel(int number)
+        public void SetChannel(int number)
         {
             Console.WriteLine("sony set channel");
         }
