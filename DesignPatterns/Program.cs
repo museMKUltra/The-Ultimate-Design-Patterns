@@ -22,6 +22,7 @@ using DesignPatterns.Memento;
 using DesignPatterns.Memento.Exercise;
 using DesignPatterns.Observer;
 using DesignPatterns.Observer.Exercise;
+using DesignPatterns.Proxy;
 using DesignPatterns.State;
 using DesignPatterns.State.Abuse;
 using DesignPatterns.State.Exercise;
@@ -217,6 +218,19 @@ namespace DesignPatterns
             Flyweight();
 
             Bridge();
+
+            Proxy();
+        }
+
+        private static void Proxy()
+        {
+            var library = new Library();
+            string[] fileNames = { "a", "b", "c" };
+
+            foreach (var fileName in fileNames)
+                library.Add(new Ebook(fileName));
+
+            library.OpenEbook("a");
         }
 
         private static void Bridge()
