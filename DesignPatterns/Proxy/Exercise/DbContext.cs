@@ -5,9 +5,9 @@ namespace DesignPatterns.Proxy.Exercise
 {
     public class DbContext
     {
-        private Dictionary<int, Product> _updatedObjects = new();
+        private Dictionary<int, IProduct> _updatedObjects = new();
         
-        public Product GetProduct(int id) {
+        public IProduct GetProduct(int id) {
             // Automatically generate SQL statements
             // to read the product with the given ID.
             Console.WriteLine($"SELECT * FROM products WHERE product_id = {id}");
@@ -18,7 +18,7 @@ namespace DesignPatterns.Proxy.Exercise
                 Name = "Product 1"
             };
 
-            return product;
+            return new ProductProxy(product, this);
         }
 
         public void SaveChanges() {
@@ -26,13 +26,13 @@ namespace DesignPatterns.Proxy.Exercise
             // to update the database.
             foreach (var (_, updatedObject) in _updatedObjects)
             {
-                Console.WriteLine($"UPDATE products SET name =  {updatedObject.Name} WHERE product_id = {updatedObject.Id}");
+                Console.WriteLine($"UPDATE products SET name = {updatedObject.Name} WHERE product_id = {updatedObject.Id}");
             }
 
             _updatedObjects.Clear();
         }
 
-        public void MarkAsChanged(Product product) {
+        public void MarkAsChanged(IProduct product) {
             _updatedObjects.Add(product.Id, product);
         }
     }
