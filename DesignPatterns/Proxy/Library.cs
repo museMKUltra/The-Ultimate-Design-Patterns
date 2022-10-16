@@ -5,9 +5,9 @@ namespace DesignPatterns.Proxy
 {
     public class Library
     {
-        private Dictionary<String, Ebook> _ebooks = new();
+        private Dictionary<String, IEbook> _ebooks = new();
 
-        public void Add(Ebook ebook)
+        public void Add(IEbook ebook)
         {
             _ebooks.Add(ebook.GetFileName(), ebook);
         }

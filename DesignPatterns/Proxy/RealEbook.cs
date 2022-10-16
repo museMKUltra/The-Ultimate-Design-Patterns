@@ -2,11 +2,11 @@ using System;
 
 namespace DesignPatterns.Proxy
 {
-    public class Ebook : IEbook
+    public class RealEbook : IEbook
     {
         private String _fileName;
 
-        public Ebook(String fileName)
+        public RealEbook(String fileName)
         {
             _fileName = fileName;
             Load();

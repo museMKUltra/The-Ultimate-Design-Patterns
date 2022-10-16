@@ -228,9 +228,10 @@ namespace DesignPatterns
             string[] fileNames = { "a", "b", "c" };
 
             foreach (var fileName in fileNames)
-                library.Add(new Ebook(fileName));
+                library.Add(new EbookProxy(fileName));
 
             library.OpenEbook("a");
+            library.OpenEbook("b");
         }
 
         private static void Bridge()
