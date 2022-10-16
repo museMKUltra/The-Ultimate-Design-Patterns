@@ -228,7 +228,7 @@ namespace DesignPatterns
             string[] fileNames = { "a", "b", "c" };
 
             foreach (var fileName in fileNames)
-                library.Add(new EbookProxy(fileName));
+                library.Add(new LoggingEbookProxy(fileName));
 
             library.OpenEbook("a");
             library.OpenEbook("b");
