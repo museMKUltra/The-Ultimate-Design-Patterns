@@ -2,7 +2,7 @@ using System;
 
 namespace DesignPatterns.Proxy
 {
-    public class Ebook
+    public class Ebook : IEbook
     {
         private String _fileName;
 
