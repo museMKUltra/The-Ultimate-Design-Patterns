@@ -232,6 +232,8 @@ namespace DesignPatterns
 
             library.OpenEbook("a");
             library.OpenEbook("b");
+
+            DesignPatterns.Proxy.Exercise.Demo.Show();
         }
 
         private static void Bridge()
