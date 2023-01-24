@@ -225,11 +225,16 @@ namespace DesignPatterns
 
             Prototype();
 
-            var configManager = new ConfigManager();
+            Singleton();
+        }
+
+        private static void Singleton()
+        {
+            var configManager = ConfigManager.GetInstance();
             configManager.Set("name", "Mosh");
             Console.WriteLine(configManager.Get("name"));
 
-            var otherManager = new ConfigManager();
+            var otherManager = ConfigManager.GetInstance();
             Console.WriteLine(otherManager.Get("name"));
         }
 
