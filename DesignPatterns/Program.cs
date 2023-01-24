@@ -24,6 +24,7 @@ using DesignPatterns.Observer;
 using DesignPatterns.Observer.Exercise;
 using DesignPatterns.prototype.exercise;
 using DesignPatterns.Proxy;
+using DesignPatterns.singleton;
 using DesignPatterns.State;
 using DesignPatterns.State.Abuse;
 using DesignPatterns.State.Exercise;
@@ -223,6 +224,13 @@ namespace DesignPatterns
             Proxy();
 
             Prototype();
+
+            var configManager = new ConfigManager();
+            configManager.Set("name", "Mosh");
+            Console.WriteLine(configManager.Get("name"));
+
+            var otherManager = new ConfigManager();
+            Console.WriteLine(otherManager.Get("name"));
         }
 
         private static void Prototype()
