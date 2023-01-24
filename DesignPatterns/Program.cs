@@ -236,6 +236,13 @@ namespace DesignPatterns
 
             var otherManager = ConfigManager.GetInstance();
             Console.WriteLine(otherManager.Get("name"));
+
+            var logger1 = singleton.exercise.Logger.GetInstance("file1");
+            var logger2 = singleton.exercise.Logger.GetInstance("file1");
+            Console.WriteLine(logger1 == logger2);
+            
+            var anotherLogger = singleton.exercise.Logger.GetInstance("file2");
+            Console.WriteLine(logger2 == anotherLogger);
         }
 
         private static void Prototype()
