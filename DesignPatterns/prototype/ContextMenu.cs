@@ -2,13 +2,10 @@ namespace DesignPatterns.prototype
 {
     public class ContextMenu
     {
-        public void Duplicate(Component component)
+        public void Duplicate(IComponent component)
         {
-            if (component is Circle source)
-            {
-                var target = new Circle { Radius = source.Radius };
-                // Add target to our document
-            }
+            var newComponent = component.Clone();
+            // Add target to our document
         }
     }
 }

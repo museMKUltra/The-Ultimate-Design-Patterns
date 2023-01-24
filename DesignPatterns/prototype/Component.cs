@@ -1,7 +1,8 @@
 namespace DesignPatterns.prototype
 {
-    public interface Component
+    public interface IComponent
     {
         void Render();
+        IComponent Clone();
     }
 }
