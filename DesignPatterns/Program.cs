@@ -22,6 +22,7 @@ using DesignPatterns.Memento;
 using DesignPatterns.Memento.Exercise;
 using DesignPatterns.Observer;
 using DesignPatterns.Observer.Exercise;
+using DesignPatterns.prototype.exercise;
 using DesignPatterns.Proxy;
 using DesignPatterns.State;
 using DesignPatterns.State.Abuse;
@@ -220,6 +221,18 @@ namespace DesignPatterns
             Bridge();
 
             Proxy();
+
+            Prototype();
+        }
+
+        private static void Prototype()
+        {
+            var text = new Text("Hello");
+            var timeline = new Timeline();
+            timeline.Add(text);
+
+            var contextMenu = new ContextMenu(timeline);
+            contextMenu.Duplicate(text);
         }
 
         private static void Proxy()
