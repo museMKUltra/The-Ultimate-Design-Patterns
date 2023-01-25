@@ -2,7 +2,12 @@ using System.Collections.Generic;
 
 namespace DesignPatterns.FactoryMethod.Match
 {
-    public class MatchViewEngine
+    public interface IViewEngine
+    {
+        string Render(string viewName, Dictionary<string, object> context);
+    }
+
+    public class MatchViewEngine : IViewEngine
     {
         public string Render(string viewName, Dictionary<string, object> context)
         {

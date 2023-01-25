@@ -5,9 +5,8 @@ namespace DesignPatterns.FactoryMethod.Match
 {
     public class Controller
     {
-        public void Render(string viewName, Dictionary<string, object> context)
+        public void Render(string viewName, Dictionary<string, object> context, IViewEngine engine)
         {
-            var engine = new MatchViewEngine();
             var html = engine.Render(viewName, context);
             Console.WriteLine(html);
         }
