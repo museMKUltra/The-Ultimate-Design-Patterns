@@ -13,6 +13,7 @@ using DesignPatterns.Decorator;
 using DesignPatterns.Facade;
 using DesignPatterns.Facade.Exercise;
 using DesignPatterns.FactoryMethod;
+using DesignPatterns.FactoryMethod.Exercise;
 using DesignPatterns.flyweight;
 using DesignPatterns.flyweight.Exercise;
 using DesignPatterns.Iterator;
@@ -235,6 +236,9 @@ namespace DesignPatterns
         {
             var productController = new ProductController();
             productController.ListProducts();
+
+            var scheduler = new Scheduler();
+            scheduler.Schedule(new Event());
         }
 
         private static void Singleton()
