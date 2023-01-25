@@ -240,6 +240,10 @@ namespace DesignPatterns
             // Standard scheduler using the Gregorian calendar
             var scheduler = new Scheduler();
             scheduler.Schedule(new Event());
+            
+            // Arabian scheduler using the Arabian calendar
+            var arabianScheduler = new ArabianScheduler();
+            arabianScheduler.Schedule(new Event());
         }
 
         private static void Singleton()
