@@ -1,4 +1,7 @@
 ﻿using System;
+using DesignPatterns.AbstractFactory.Ant;
+using DesignPatterns.AbstractFactory.App;
+using DesignPatterns.AbstractFactory.Material;
 using DesignPatterns.Adapter;
 using DesignPatterns.Adapter.Exercise;
 using DesignPatterns.Bridge;
@@ -230,6 +233,14 @@ namespace DesignPatterns
             Singleton();
 
             FactoryMethod();
+            
+            AbstractFactory();
+        }
+
+        private static void AbstractFactory()
+        {
+            new ContactForm().Render(new MaterialWidgetFactory());
+            new ContactForm().Render(new AntWidgetFactory());
         }
 
         private static void FactoryMethod()

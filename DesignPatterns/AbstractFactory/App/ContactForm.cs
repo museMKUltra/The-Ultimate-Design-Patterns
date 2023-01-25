@@ -5,18 +5,10 @@ namespace DesignPatterns.AbstractFactory.App
 {
     public class ContactForm
     {
-        public void Render(Theme theme)
+        public void Render(IWidgetFactory factory)
         {
-            if (theme == Theme.Ant)
-            {
-                new AntButton().Render();
-                new AntTextBox().Render();
-            }
-            else if (theme == Theme.Material)
-            {
-                new MaterialButton().Render();
-                new MaterialTextBox().Render();
-            }
+            factory.CreateButton().Render();
+            factory.CreateTextBox().Render();
         }
     }
 }
