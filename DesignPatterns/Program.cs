@@ -12,6 +12,7 @@ using DesignPatterns.Composite.Exercise;
 using DesignPatterns.Decorator;
 using DesignPatterns.Facade;
 using DesignPatterns.Facade.Exercise;
+using DesignPatterns.FactoryMethod;
 using DesignPatterns.flyweight;
 using DesignPatterns.flyweight.Exercise;
 using DesignPatterns.Iterator;
@@ -226,6 +227,14 @@ namespace DesignPatterns
             Prototype();
 
             Singleton();
+
+            FactoryMethod();
+        }
+
+        private static void FactoryMethod()
+        {
+            var productController = new ProductController();
+            productController.ListProducts();
         }
 
         private static void Singleton()
