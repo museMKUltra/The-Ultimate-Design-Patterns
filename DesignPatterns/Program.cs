@@ -1,6 +1,10 @@
 ﻿using System;
 using DesignPatterns.AbstractFactory.Ant;
 using DesignPatterns.AbstractFactory.App;
+using DesignPatterns.AbstractFactory.Exercise;
+using DesignPatterns.AbstractFactory.Exercise.BuildMuscle;
+using DesignPatterns.AbstractFactory.Exercise.StrengthTraining;
+using DesignPatterns.AbstractFactory.Exercise.WeightLoss;
 using DesignPatterns.AbstractFactory.Material;
 using DesignPatterns.Adapter;
 using DesignPatterns.Adapter.Exercise;
@@ -241,6 +245,10 @@ namespace DesignPatterns
         {
             new ContactForm().Render(new MaterialWidgetFactory());
             new ContactForm().Render(new AntWidgetFactory());
+            
+            new HomePage().SetGoal(new WeightLossFactory());
+            new HomePage().SetGoal(new BuildMuscleFactory());
+            new HomePage().SetGoal(new StrengthTrainingFactory());
         }
 
         private static void FactoryMethod()
