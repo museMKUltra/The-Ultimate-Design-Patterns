@@ -237,6 +237,7 @@ namespace DesignPatterns
             var productController = new ProductController();
             productController.ListProducts();
 
+            // Standard scheduler using the Gregorian calendar
             var scheduler = new Scheduler();
             scheduler.Schedule(new Event());
         }
