@@ -10,6 +10,7 @@ using DesignPatterns.Adapter;
 using DesignPatterns.Adapter.Exercise;
 using DesignPatterns.Bridge;
 using DesignPatterns.Builder;
+using DesignPatterns.Builder.Exercise;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.ChainOfResponsibility.Exercise;
 using DesignPatterns.Command;
@@ -45,8 +46,10 @@ using DesignPatterns.Template.Exercise;
 using DesignPatterns.Visitor;
 using DesignPatterns.Visitor.Exercise;
 using Button = DesignPatterns.Command.fx.Button;
+using Document = DesignPatterns.Memento.Exercise.Document;
 using HtmlDocument = DesignPatterns.Command.Editor.HtmlDocument;
 using SpreadSheet = DesignPatterns.Observer.SpreadSheet;
+using Text = DesignPatterns.prototype.exercise.Text;
 using UndoCommand = DesignPatterns.Command.Editor.UndoCommand;
 
 namespace DesignPatterns
@@ -257,6 +260,13 @@ namespace DesignPatterns
             var movieBuilder = new MovieBuilder();
             presentation.Export(movieBuilder);
             var movie = movieBuilder.GetMovie();
+
+            var document = new Builder.Exercise.Document();
+            document.Add(new Builder.Exercise.Text("Hello World"));
+            document.Add(new Builder.Exercise.Image("pic1.jpg"));
+            
+            document.Export(ExportFormat.Html, "export.html");
+            document.Export(ExportFormat.Text, "export.txt");
         }
 
         private static void AbstractFactory()
