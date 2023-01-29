@@ -9,6 +9,7 @@ using DesignPatterns.AbstractFactory.Material;
 using DesignPatterns.Adapter;
 using DesignPatterns.Adapter.Exercise;
 using DesignPatterns.Bridge;
+using DesignPatterns.Builder;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.ChainOfResponsibility.Exercise;
 using DesignPatterns.Command;
@@ -239,6 +240,23 @@ namespace DesignPatterns
             FactoryMethod();
             
             AbstractFactory();
+
+            Builder();
+        }
+
+        private static void Builder()
+        {
+            var presentation = new Presentation();
+            presentation.AddSlide(new Slide("Slide 1"));
+            presentation.AddSlide(new Slide("Slide 2"));
+
+            var pdfDocumentBuilder = new PdfDocumentBuilder();
+            presentation.Export(pdfDocumentBuilder);
+            var pdf = pdfDocumentBuilder.GetPdfDocument();
+
+            var movieBuilder = new MovieBuilder();
+            presentation.Export(movieBuilder);
+            var movie = movieBuilder.GetMovie();
         }
 
         private static void AbstractFactory()

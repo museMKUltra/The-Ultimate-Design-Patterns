@@ -11,25 +11,13 @@ namespace DesignPatterns.Builder
             _slides.Add(slide);
         }
 
-        public void Export(PresentationFormat format)
+        public void Export(IPresentationBuilder builder)
         {
-            if (format == PresentationFormat.Pdf)
+            // We have a single place where we have implemented the exporting logic
+            builder.AddSlide(new Slide("Copyright"));
+            foreach (var slide in _slides)
             {
-                var pdf = new PdfDocument();
-                pdf.AddPage("Copyright");
-                foreach (var slide in _slides)
-                {
-                    pdf.AddPage(slide.Text);
-                }
-            }
-            else if (format == PresentationFormat.Movie)
-            {
-                var movie = new Movie();
-                movie.AddFrame("Copyright", 3);
-                foreach (var slide in _slides)
-                {
-                    movie.AddFrame(slide.Text, 3);
-                }
+                builder.AddSlide(slide);
             }
         }
     }
