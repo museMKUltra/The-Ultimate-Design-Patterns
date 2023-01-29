@@ -265,8 +265,8 @@ namespace DesignPatterns
             document.Add(new Builder.Exercise.Text("Hello World"));
             document.Add(new Builder.Exercise.Image("pic1.jpg"));
             
-            document.Export(ExportFormat.Html, "export.html");
-            document.Export(ExportFormat.Text, "export.txt");
+            document.Export(new HtmlDocumentBuilder(), "export.html");
+            document.Export(new TextDocumentBuilder(), "export.txt");
         }
 
         private static void AbstractFactory()
