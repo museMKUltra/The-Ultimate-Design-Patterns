@@ -6,19 +6,17 @@ namespace DesignPatterns.Builder.Exercise
     {
         private HtmlDocument _document = new();
 
-        public void Add(IElement element)
+        public void AddImage(Image image)
         {
-            if (element is Text text)
-            {
-                _document.Add(new HtmlParagraph(text.Content));
-            }
-            else if (element is Image image)
-            {
-                _document.Add(new HtmlImage(image.Source));
-            }
+            _document.Add(new HtmlImage(image.Source));
         }
 
-        public string GetContent()
+        public void AddText(Text text)
+        {
+            _document.Add(new HtmlParagraph(text.Content));
+        }
+
+        public string GetResult()
         {
             return _document.ToString();
         }

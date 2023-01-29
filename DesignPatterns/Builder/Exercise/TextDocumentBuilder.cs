@@ -6,15 +6,18 @@ namespace DesignPatterns.Builder.Exercise
     {
         private StringBuilder _builder = new();
 
-        public void Add(IElement element)
+        public void AddImage(Image image)
         {
-            if (element is Text text)
-            {
-                _builder.Append(text.Content);
-            }
+            // Note that this method has no implementation because
+            // images cannot be added to a plain text file.
         }
 
-        public string GetContent()
+        public void AddText(Text text)
+        {
+            _builder.Append(text.Content);
+        }
+
+        public string GetResult()
         {
             return _builder.ToString();
         }

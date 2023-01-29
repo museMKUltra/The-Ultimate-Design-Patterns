@@ -2,8 +2,8 @@ namespace DesignPatterns.Builder.Exercise
 {
     public interface IDocumentBuilder
     {
-        void Add(IElement element);
-
-        string GetContent();
+        void AddImage(Image image);
+        void AddText(Text text);
+        string GetResult();
     }
 }
